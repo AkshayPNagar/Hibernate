@@ -1,0 +1,52 @@
+package com;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.SessionFactory;
+import org.hibernate.Session;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
+import java.util.List;
+
+
+public class StudentCriteria {
+
+	public static void main(String[] args) {
+		
+		Configuration cfg = new Configuration();
+		cfg.configure();
+		cfg.addAnnotatedClass(Students.class);
+		
+		SessionFactory factory = cfg.buildSessionFactory();
+		
+		Session session = factory.openSession();
+		
+		Criteria criteria = session.createCriteria(Students.class);
+		
+//		List<Students> info = criteria.list();
+		
+//		for(Students all : info)
+//		{
+//			System.out.println(all);
+//		}
+//		
+//		
+		System.out.println("--------------------------------------------------------------");
+		
+		
+		
+		Projection projection = Projections.property("Roll");
+		
+		criteria.setProjection(projection);
+		
+		
+List<String> roll = criteria.list();
+		
+		for(String all : roll)
+		{
+			System.out.println(all);
+		}
+
+		
+	}
+
+}

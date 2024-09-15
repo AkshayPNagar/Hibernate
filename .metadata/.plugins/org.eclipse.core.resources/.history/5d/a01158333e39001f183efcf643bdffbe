@@ -1,0 +1,80 @@
+package com;
+
+	import org.hibernate.cfg.Configuration;
+	import org.hibernate.SessionFactory;
+	import org.hibernate.Session;
+	import org.hibernate.Transaction;
+	import org.hibernate.Criteria;
+	import org.hibernate.criterion.Projection;
+	import org.hibernate.criterion.Projections;
+
+import java.util.ArrayList;
+import java.util.List;
+	
+	public class ClientCriteria {
+
+
+		public static void main(String[] args) {
+			
+			Configuration cfg = new Configuration();
+			cfg.configure();
+			cfg.addAnnotatedClass(Infosys.class);
+			cfg.addAnnotatedClass(Emp_projects.class);	
+			
+			SessionFactory sf = cfg.buildSessionFactory();
+			
+			Session session = sf.openSession();
+			
+			Transaction tt = session.beginTransaction();
+			
+			Infosys info = new Infosys("Sushant","Tester");
+			
+			
+			Criteria criteria = session.createCriteria(Infosys.class);
+			
+			
+			List<Infosys> details = criteria.list();
+			
+			for(Infosys s : details)
+			{
+				System.out.println(s);
+			}
+			
+			Projection projection = Projections.property("emp_department");
+			
+			criteria.setProjection(projection);
+			
+			List<String > detail_depart = criteria.list();
+			
+			for(String depart : detail_depart)
+			{
+				System.out.println(depart);
+			}
+			
+			
+			Emp_projects ep1 = new Emp_projects("Food Management", 4);
+			Emp_projects ep2 = new Emp_projects("Car Management", 6);
+			
+			ArrayList<Emp_projects> ep = new ArrayList<Emp_projects>();
+			ep.add(ep1);
+			ep.add(ep2);
+			
+			info.setProject(ep);
+			
+			
+			
+			session.save(info);
+			tt.commit();
+
+			
+			
+			
+			
+			
+					
+
+		}
+
+	}
+
+

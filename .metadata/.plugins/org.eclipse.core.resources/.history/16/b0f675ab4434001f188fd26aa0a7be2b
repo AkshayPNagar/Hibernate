@@ -1,0 +1,13 @@
+package com;
+
+import org.hibernate.cfg.Configuration;
+import org.hibernate.SessionFactory;
+
+public class StudentsDelete {
+
+	public static void main(String[] args) {
+
+			
+	}
+
+}

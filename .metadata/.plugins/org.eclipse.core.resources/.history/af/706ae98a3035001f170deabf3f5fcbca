@@ -1,0 +1,11 @@
+package com;
+import org.hibernate.cfg.Configuration
+
+public class StudentCriteria {
+
+	public static void main(String[] args) {
+
+		
+	}
+
+}

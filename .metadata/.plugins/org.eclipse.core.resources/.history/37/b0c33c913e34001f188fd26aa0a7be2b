@@ -1,0 +1,11 @@
+package com;
+
+public class Students {
+	
+	int Roll;
+	
+	String Name;
+	String Address;
+	int Marks;
+
+}

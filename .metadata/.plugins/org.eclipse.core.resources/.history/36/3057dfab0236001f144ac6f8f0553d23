@@ -1,0 +1,35 @@
+package com;
+
+import org.hibernate.cfg.Configuration;
+import org.hibernate.SessionFactory;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
+
+public class ClientInsert {
+
+	public static void main(String[] args) {
+		
+		Configuration cfg = new Configuration();
+		cfg.configure();
+		cfg.addAnnotatedClass(Infosys.class);
+		
+		SessionFactory sf = cfg.buildSessionFactory();
+		
+		Session session = sf.openSession();
+		
+		Transaction tt = session.beginTransaction();
+		
+		Infosys info = new Infosys("Sahas","HR");
+		
+		session.save(info);
+		tt.commit();
+
+		System.out.println(session.load(Infosys.class, 1));
+				
+
+	}
+
+}

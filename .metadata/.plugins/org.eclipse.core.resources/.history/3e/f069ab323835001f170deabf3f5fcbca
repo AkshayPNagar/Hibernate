@@ -1,0 +1,7 @@
+package com;
+
+public class ClientCriteria {
+	public static void main(String[] args) {
+		
+	}
+}

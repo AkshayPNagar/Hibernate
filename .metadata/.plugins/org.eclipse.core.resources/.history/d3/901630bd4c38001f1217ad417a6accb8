@@ -1,0 +1,13 @@
+package com;
+
+import javax.persistence.Id;
+
+public class Author {
+		
+		@Id
+		@GeneratedValue(strategy)
+		private int author_id;
+		private String author_name;
+		
+		private List<Book> books;
+}

@@ -1,0 +1,11 @@
+package com;
+
+public class Book {
+	
+	private book_id;
+	private book_name;
+	
+		
+	
+
+}

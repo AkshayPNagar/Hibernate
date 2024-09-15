@@ -1,0 +1,59 @@
+package com;
+
+	import org.hibernate.cfg.Configuration;
+	import org.hibernate.SessionFactory;
+	import org.hibernate.Session;
+	import org.hibernate.Transaction;
+	import org.hibernate.Criteria;
+	import org.hibernate.criterion.Projection;
+	import org.hibernate.criterion.Projections;
+
+	import java.util.List;
+	
+	public class ClientCriteria {
+
+
+		public static void main(String[] args) {
+			
+			Configuration cfg = new Configuration();
+			cfg.configure();
+			cfg.addAnnotatedClass(Infosys.class);
+			
+			SessionFactory sf = cfg.buildSessionFactory();
+			
+			Session session = sf.openSession();
+			
+			Transaction tt = session.beginTransaction();
+			
+			Infosys info = new Infosys("Kirshna","Developer");
+			
+			session.save(info);
+			tt.commit();
+
+			Criteria cr = session.createCriteria(Infosys.class);
+			
+			
+			List<Infosys> details = cr.list();
+			
+			for(Infosys s : details)
+			{
+				System.out.println(s);
+			}
+			
+			Projection projection = Projections.property("emp_department");
+			
+			cr.setProjection(projection);
+			
+			List<Object > detail_depart = criteria.list();
+			
+			
+			
+			
+			
+					
+
+		}
+
+	}
+
+}

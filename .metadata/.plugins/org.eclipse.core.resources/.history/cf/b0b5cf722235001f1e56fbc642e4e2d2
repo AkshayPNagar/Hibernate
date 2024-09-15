@@ -1,0 +1,10 @@
+package com;
+
+public class Teacher {
+	
+	int t_id;
+	String t_name;
+	String t_address;
+	String t_department;
+
+}

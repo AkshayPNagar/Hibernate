@@ -1,0 +1,24 @@
+package com;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.List;
+
+
+@Entity
+public class Author {
+		
+		@Override
+	public String toString() {
+		return "Author [author_id=" + author_id + ", author_name=" + author_name + ", books=" + books + "]";
+	}
+
+		@Id
+		@GeneratedValue(strategy=GenerationType.AUTO)
+		 int author_id;
+		String author_name;
+		
+		List<Book> books;
+}

@@ -1,0 +1,8 @@
+
+public class Infosys {
+	
+	int emp_id;
+	String emp_name;
+	String emp_department;
+
+}

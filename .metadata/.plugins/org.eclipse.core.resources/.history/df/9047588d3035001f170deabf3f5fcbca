@@ -1,0 +1,14 @@
+package com;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.SessionFactory;
+import org.hibernate.Session;
+import org.hibernate.Critria
+import org.hibernate.
+public class StudentCriteria {
+
+	public static void main(String[] args) {
+
+		
+	}
+
+}

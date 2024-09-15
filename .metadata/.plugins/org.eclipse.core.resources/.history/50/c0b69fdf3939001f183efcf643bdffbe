@@ -1,0 +1,9 @@
+package com;
+
+import org.hibernate.cfg.configuration;
+
+public class Author_Query {
+	
+	
+
+}

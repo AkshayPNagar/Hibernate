@@ -1,0 +1,11 @@
+package com;
+import javax.persistence.Id;
+
+public class Infosys {
+	
+	@Id
+	int emp_id;
+	String emp_name;
+	String emp_department;
+
+}
